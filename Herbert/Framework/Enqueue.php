@@ -168,7 +168,7 @@ class Enqueue {
             return true;
         }
 
-        return array_search($hook, $filterWith) !== null;
+        return array_search($hook, $filterWith) !== false;
     }
 
     /**
