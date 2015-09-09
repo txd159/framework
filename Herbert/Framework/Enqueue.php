@@ -70,9 +70,17 @@ class Enqueue {
         {
             wp_enqueue_style($attrs['as'], $attrs['src']);
         }
-        else
+        elseif (pathinfo($attrs['src'], PATHINFO_EXTENSION) === 'js')
         {
             wp_enqueue_script($attrs['as'], $attrs['src'], [], false, $footer);
+        }
+        elseif ($attrs['src']==='wp_css')
+         {
+        wp_enqueue_style($attrs['as']);
+         }
+        elseif ($attrs['src']==='wp_js')
+        {
+            wp_enqueue_script($attrs['as']);
         }
     }
 
